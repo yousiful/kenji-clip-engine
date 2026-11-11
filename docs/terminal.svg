@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 1000 584" width="1000" height="584" font-family="Consolas, Menlo, 'Courier New', monospace" font-size="16">
+  <rect width="1000" height="584" rx="16" fill="#0d1117"/>
+  <rect width="1000" height="38" rx="16" fill="#1f2633"/><rect y="22" width="1000" height="16" fill="#1f2633"/>
+  <circle cx="24" cy="19" r="7" fill="#ff5f57"/><circle cx="46" cy="19" r="7" fill="#febc2e"/><circle cx="68" cy="19" r="7" fill="#28c840"/>
+  <text x="500" y="25" text-anchor="middle" fill="#8b949e" font-family="Segoe UI, Arial, sans-serif" font-size="14">kenji-clip-engine</text>
+  <g fill="#c9d1d9">
+    <text x="24" y="74"><tspan fill="#7ee787">$</tspan> python clip.py "https://youtu.be/VIDEO_ID" --auto 3</text>
+    <text x="24" y="102">1/4  Getting the video...</text>
+    <text x="24" y="126">2/4  Transcribing (first run downloads the speech model)...</text>
+    <text x="24" y="150">3/4  Picking clips...</text>
+    <text x="24" y="174">4/4  Rendering 3 clip(s)...</text>
+    <text x="24" y="198" fill="#ffd54a">     output/my-video-1.mp4  (42s)  "Here's the mistake that costs you..."</text>
+    <text x="24" y="222" fill="#ffd54a">     output/my-video-2.mp4  (37s)  "If you only fix one thing this week..."</text>
+    <text x="24" y="246" fill="#ffd54a">     output/my-video-3.mp4  (55s)  "Nobody tells you this about..."</text>
+    <text x="24" y="270">Done. 3 clip(s) in output/  Captions to edit are in output/clips.json</text>
+
+    <text x="24" y="318"><tspan fill="#7ee787">$</tspan> python post.py --schedule "2026-11-12 09:30"</text>
+    <text x="24" y="346">Kenji will post to 6 account(s):</text>
+    <text x="24" y="370">   facebook   Your Business Page        instagram  @yourbrand</text>
+    <text x="24" y="394">   tiktok     @yourbrand                youtube    Your Channel</text>
+    <text x="24" y="418">   linkedin   Your Name                 pinterest  Your Brand</text>
+    <text x="24" y="446">Post these? Type yes: <tspan fill="#7ee787">yes</tspan></text>
+    <text x="24" y="474">Uploading my-video-1.mp4 to your Kenji media library...   (clips 2 and 3 follow, a day apart)</text>
+    <text x="24" y="498">   sent to 5 account(s) on Facebook / Instagram / TikTok / LinkedIn / Pinterest</text>
+    <text x="24" y="522">   sent to 1 YouTube channel(s) as a Short</text>
+    <text x="24" y="556" fill="#7ee787">Done. Open Kenji &gt; Marketing &gt; Social Planner to see every post and its status.</text>
+  </g>
+</svg>

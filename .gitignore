@@ -1,0 +1,9 @@
+.env
+downloads/
+output/
+__pycache__/
+*.mp4
+*.m4a
+*.webm
+*.ass
+*.words.json

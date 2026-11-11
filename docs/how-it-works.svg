@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="1200" height="360" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b1020"/><stop offset="1" stop-color="#141b33"/></linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ffd54a"/><stop offset="1" stop-color="#ffb300"/></linearGradient>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#ffd54a"/></marker>
+  </defs>
+  <rect width="1200" height="360" rx="24" fill="url(#bg)"/>
+  <text x="600" y="52" text-anchor="middle" fill="#ffffff" font-size="26" font-weight="700">One YouTube link in. Captioned clips out on every platform.</text>
+
+  <g font-size="15" fill="#c9d1e8" text-anchor="middle">
+    <!-- 1 -->
+    <rect x="30" y="100" width="160" height="150" rx="16" fill="#1b2442" stroke="#2c3866"/>
+    <rect x="80" y="122" width="60" height="42" rx="10" fill="#ff0033"/><path d="M103,132 L121,143 L103,154 z" fill="#fff"/>
+    <text x="110" y="196" fill="#fff" font-weight="700" font-size="17">1. Paste a link</text>
+    <text x="110" y="220">YouTube URL or</text><text x="110" y="238">your own video</text>
+    <!-- 2 -->
+    <rect x="220" y="100" width="160" height="150" rx="16" fill="#1b2442" stroke="#2c3866"/>
+    <g fill="#ffd54a"><rect x="262" y="140" width="6" height="16" rx="3"/><rect x="274" y="130" width="6" height="36" rx="3"/><rect x="286" y="122" width="6" height="52" rx="3"/><rect x="298" y="134" width="6" height="28" rx="3"/><rect x="310" y="126" width="6" height="44" rx="3"/><rect x="322" y="138" width="6" height="20" rx="3"/></g>
+    <text x="300" y="196" fill="#fff" font-weight="700" font-size="17">2. Transcribe</text>
+    <text x="300" y="220">every word gets</text><text x="300" y="238">a timestamp</text>
+    <!-- 3 -->
+    <rect x="410" y="100" width="160" height="150" rx="16" fill="#1b2442" stroke="#2c3866"/>
+    <rect x="440" y="134" width="100" height="10" rx="5" fill="#2c3866"/><rect x="460" y="134" width="30" height="10" rx="5" fill="#ffd54a"/><rect x="505" y="134" width="22" height="10" rx="5" fill="#ffd54a"/>
+    <text x="490" y="166" fill="#ffd54a" font-size="13">best moments</text>
+    <text x="490" y="196" fill="#fff" font-weight="700" font-size="17">3. Pick clips</text>
+    <text x="490" y="220">auto-picks hooks,</text><text x="490" y="238">or set your own times</text>
+    <!-- 4 -->
+    <rect x="600" y="100" width="160" height="150" rx="16" fill="#1b2442" stroke="#2c3866"/>
+    <rect x="662" y="114" width="36" height="62" rx="6" fill="#0b1020" stroke="#ffd54a" stroke-width="2"/><rect x="666" y="132" width="28" height="18" fill="#3a4a80"/><rect x="667" y="156" width="26" height="5" rx="2" fill="#ffd54a"/>
+    <text x="680" y="196" fill="#fff" font-weight="700" font-size="17">4. Make it vertical</text>
+    <text x="680" y="220">9:16 with big</text><text x="680" y="238">word-by-word captions</text>
+    <!-- 5 Kenji -->
+    <rect x="790" y="90" width="170" height="170" rx="18" fill="url(#gold)"/>
+    <text x="875" y="160" fill="#0b1020" font-weight="800" font-size="30">Kenji AI</text>
+    <text x="875" y="190" fill="#0b1020" font-size="15" font-weight="600">Social Planner</text>
+    <text x="875" y="226" fill="#0b1020" font-size="14">uploads + posts</text><text x="875" y="244" fill="#0b1020" font-size="14">(or schedules)</text>
+    <!-- 6 platforms -->
+    <g font-size="14" font-weight="700" fill="#fff" text-anchor="start">
+      <rect x="1000" y="84" width="170" height="28" rx="14" fill="#1877f2"/><text x="1018" y="103">Facebook</text>
+      <rect x="1000" y="118" width="170" height="28" rx="14" fill="#d62976"/><text x="1018" y="137">Instagram</text>
+      <rect x="1000" y="152" width="170" height="28" rx="14" fill="#111" stroke="#25f4ee"/><text x="1018" y="171">TikTok</text>
+      <rect x="1000" y="186" width="170" height="28" rx="14" fill="#ff0033"/><text x="1018" y="205">YouTube Shorts</text>
+      <rect x="1000" y="220" width="170" height="28" rx="14" fill="#0a66c2"/><text x="1018" y="239">LinkedIn</text>
+      <rect x="1000" y="254" width="170" height="28" rx="14" fill="#e60023"/><text x="1018" y="273">Pinterest</text>
+    </g>
+  </g>
+  <g stroke="#ffd54a" stroke-width="3" fill="none" marker-end="url(#arr)">
+    <path d="M192,175 L216,175"/><path d="M382,175 L406,175"/><path d="M572,175 L596,175"/><path d="M762,175 L786,175"/><path d="M962,175 L994,175"/>
+  </g>
+  <text x="600" y="320" text-anchor="middle" fill="#8f9bc4" font-size="15">python clip.py "https://youtu.be/VIDEO_ID" --auto 3      then      python post.py</text>
+</svg>
