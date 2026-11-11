@@ -1,0 +1,15 @@
+name: Feature idea or feedback
+description: Ask for something new or tell us what would make this better
+labels: [enhancement]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: What do you want it to do?
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why would that help you?
+      description: What are you trying to get done? Who's the content for?

@@ -1,6 +1,6 @@
 # Kenji Clip Engine
 
-Turn any YouTube video into short vertical clips with captions, then post them to Facebook, Instagram, TikTok, YouTube Shorts, LinkedIn and Pinterest in one go through **[Kenji AI](https://kenjiai.com)**.
+Turn any YouTube video into short vertical clips with captions, then post them to Facebook, Instagram, TikTok, YouTube Shorts, LinkedIn and Pinterest in one go through **[Kenji AI](https://kenjiai.com/?utm_source=github&utm_medium=readme&utm_campaign=kenji-clip-engine)**.
 
 ![How it works](docs/how-it-works.svg)
 
@@ -34,9 +34,9 @@ Kenji is the part that sends your clips out. You connect your social accounts to
 
 ### Step 1. Get your Kenji account
 
-1. Sign up here: **https://freedom.kenjiai.com/finishhere**
-2. You'll get your login by email. Log in at **https://app.kenjiai.com**
-3. Want help setting it up, or want us to run your content for you? Book a call: **https://go.mediatraffics.com/leads**
+1. **[Sign up for Kenji AI](https://freedom.kenjiai.com/finishhere?utm_source=github&utm_medium=readme&utm_campaign=kenji-clip-engine)**
+2. You'll get your login by email. Log in at **[app.kenjiai.com](https://app.kenjiai.com)**
+3. Want help setting it up, or want us to run your content for you? **[Book a call](https://go.mediatraffics.com/leads?utm_source=github&utm_medium=readme&utm_campaign=kenji-clip-engine)**
 
 ### Step 2. Connect your social accounts
 
@@ -241,6 +241,10 @@ This repo keeps things simple: clean cuts and bold captions. For animated cue ca
 
 ## Want us to do it for you?
 
-We run content and ads for businesses on Kenji. **[Book a call](https://go.mediatraffics.com/leads)** or start at **[kenjiai.com](https://kenjiai.com)**.
+We run content and ads for businesses on Kenji. **[Book a call](https://go.mediatraffics.com/leads?utm_source=github&utm_medium=readme&utm_campaign=kenji-clip-engine)** or start at **[kenjiai.com](https://kenjiai.com/?utm_source=github&utm_medium=readme&utm_campaign=kenji-clip-engine)**.
+
+## Feedback and bugs
+
+Something broke, or you want a feature? **[Open an issue](https://github.com/yousiful/kenji-clip-engine/issues/new/choose)**. We read every one and fix what we can. If this saved you time, a star helps other people find it.
 
 MIT License.

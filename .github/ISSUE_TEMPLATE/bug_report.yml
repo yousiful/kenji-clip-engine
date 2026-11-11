@@ -1,0 +1,35 @@
+name: Bug report
+description: Something didn't work
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What you ran, what you expected, and what you got instead.
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: Command and error output
+      description: Paste the command and the full error. Remove your API key first.
+      render: shell
+  - type: dropdown
+    id: step
+    attributes:
+      label: Which part?
+      options:
+        - Downloading the video
+        - Transcribing
+        - Picking clips
+        - Rendering / captions
+        - Posting to Kenji
+        - Setup / install
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Your system
+      placeholder: Windows 11, Python 3.12
