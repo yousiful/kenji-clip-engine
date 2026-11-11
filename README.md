@@ -243,6 +243,12 @@ This repo keeps things simple: clean cuts and bold captions. For animated cue ca
 
 We run content and ads for businesses on Kenji. **[Book a call](https://go.mediatraffics.com/leads?utm_source=github&utm_medium=readme&utm_campaign=kenji-clip-engine)** or start at **[kenjiai.com](https://kenjiai.com/?utm_source=github&utm_medium=readme&utm_campaign=kenji-clip-engine)**.
 
+## More free tools from us
+
+- **[No-Website Finder](https://github.com/yousiful/no-website-finder)**: find local businesses on Google Maps with no website and push them into Kenji to pitch.
+- **[Meta Ads Kill Switch](https://github.com/yousiful/meta-ads-kill-switch)**: auto-pause ads that spend over your limit with zero results.
+- **[Reel Editing Toolkit](https://github.com/yousiful/reel-editing-toolkit)**: our full animated reel pipeline.
+
 ## Feedback and bugs
 
 Something broke, or you want a feature? **[Open an issue](https://github.com/yousiful/kenji-clip-engine/issues/new/choose)**. We read every one and fix what we can. If this saved you time, a star helps other people find it.
