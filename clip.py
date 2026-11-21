@@ -4,6 +4,7 @@
   python clip.py "https://youtu.be/VIDEO_ID" --clips "1:20-2:05,7:40-8:30"
   python clip.py my_webinar.mp4 --auto 5 --layout crop
   python clip.py "https://youtu.be/VIDEO_ID" --auto 3 --post        (clip, then push to Kenji)
+  python clip.py campaign_files/ --auto 3 --credit "@creatorname"     (every video in a folder, creator credited)
 """
 import argparse
 import json
@@ -22,9 +23,31 @@ def slug(s):
     return re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")[:40] or "clip"
 
 
+VIDEO_EXT = {".mp4", ".mov", ".mkv", ".webm", ".m4v"}
+
+
+def sources_from(arg):
+    p = Path(arg)
+    if p.is_dir():
+        files = sorted(f for f in p.iterdir() if f.suffix.lower() in VIDEO_EXT)
+        if not files:
+            raise SystemExit(f"No video files in {p}/")
+        return [str(f) for f in files]
+    return [arg]
+
+
+def caption_for(hook, source, credit):
+    text = f"{hook}..."
+    if credit:
+        text += f"\n\nCredit: {credit}"
+    if source.startswith("http"):
+        text += f"\nFull video: {source}"
+    return text
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("source", help="YouTube URL or a local video file")
+    ap.add_argument("source", help="YouTube URL, a local video file, or a folder of video files")
     ap.add_argument("--auto", type=int, default=3, help="how many clips to pick automatically (default 3)")
     ap.add_argument("--clips", help='pick clips yourself: "1:20-2:05,7:40-8:30"')
     ap.add_argument("--min", type=float, default=25, help="shortest auto clip in seconds (default 25)")
@@ -35,32 +58,15 @@ def main():
     ap.add_argument("--gpu", action="store_true", help="transcribe on an NVIDIA GPU")
     ap.add_argument("--out", default="output", help="output folder (default output/)")
     ap.add_argument("--post", action="store_true", help="push the finished clips to Kenji right after")
+    ap.add_argument("--credit", help='credit line added to every caption, e.g. "@creatorname"')
     args = ap.parse_args()
 
-    print("1/4  Getting the video...")
-    video, title = get_source(args.source)
-    print(f"     {title}")
-
-    print("2/4  Transcribing (first run downloads the speech model)...")
-    transcript = transcribe(video, args.model, args.gpu)
-    if not transcript:
-        raise SystemExit("No speech found in this video.")
-
-    print("3/4  Picking clips...")
-    windows = pick.manual(args.clips) if args.clips else pick.auto(transcript, args.auto, args.min, args.max)
-    if not windows:
-        raise SystemExit("Couldn't find clips that fit. Try --min 15 or pick times with --clips.")
-
-    print(f"4/4  Rendering {len(windows)} clip(s)...")
     out_dir = Path(args.out)
     made = []
-    for i, (a, b) in enumerate(windows, 1):
-        words = pick.words_between(transcript, a, b)
-        hook = " ".join(w["w"] for w in words[:14]).strip()
-        path = render(video, a, b, words, out_dir / f"{slug(title)}-{i}.mp4", args.layout)
-        made.append({"file": str(path), "start": round(a, 2), "end": round(b, 2), "hook": hook,
-                     "caption": f"{hook}...\n\nFull video: {args.source}" if args.source.startswith("http") else f"{hook}..."})
-        print(f"     {path}  ({b - a:.0f}s)  \"{hook[:60]}\"")
+    for source in sources_from(args.source):
+        made += clip_one(source, args, out_dir)
+    if not made:
+        raise SystemExit("No clips were made.")
 
     manifest = out_dir / "clips.json"
     manifest.write_text(json.dumps(made, indent=2), encoding="utf-8")
@@ -70,6 +76,36 @@ def main():
         load_dotenv()
         from post import post_clips
         post_clips(made)
+
+
+def clip_one(source, args, out_dir):
+    print(f"\n== {source}")
+    print("1/4  Getting the video...")
+    video, title = get_source(source)
+    print(f"     {title}")
+
+    print("2/4  Transcribing (first run downloads the speech model)...")
+    transcript = transcribe(video, args.model, args.gpu)
+    if not transcript:
+        print("     No speech found, skipping.")
+        return []
+
+    print("3/4  Picking clips...")
+    windows = pick.manual(args.clips) if args.clips else pick.auto(transcript, args.auto, args.min, args.max)
+    if not windows:
+        print("     Couldn't find clips that fit. Try --min 15 or pick times with --clips.")
+        return []
+
+    print(f"4/4  Rendering {len(windows)} clip(s)...")
+    made = []
+    for i, (a, b) in enumerate(windows, 1):
+        words = pick.words_between(transcript, a, b)
+        hook = " ".join(w["w"] for w in words[:14]).strip()
+        path = render(video, a, b, words, out_dir / f"{slug(title)}-{i}.mp4", args.layout)
+        made.append({"file": str(path), "start": round(a, 2), "end": round(b, 2), "hook": hook,
+                     "caption": caption_for(hook, source, args.credit)})
+        print(f"     {path}  ({b - a:.0f}s)  \"{hook[:60]}\"")
+    return made
 
 
 if __name__ == "__main__":

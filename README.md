@@ -24,6 +24,24 @@ python post.py
 
 Use your own videos, your clients' videos (with their OK), or videos whose owner has given you permission. Reposting someone else's content can get your accounts flagged or taken down, and it breaks YouTube's terms. This tool is built for repurposing **your own** long videos: podcasts, webinars, Zoom calls, YouTube uploads.
 
+### Clipping other creators (the right way)
+
+Plenty of creators *want* clippers and pay them through clipping programs and campaigns. That's the way to clip big creators without getting strikes:
+
+1. **Join the creator's clipping program or campaign.** That's your permission. Read its rules: which videos, required credit or tags, where you can post.
+2. **Use the source files they share** (usually a Google Drive or Dropbox folder). Download the folder to your computer.
+3. **Clip the whole folder, with credit on every caption:**
+
+   ```bash
+   python clip.py campaign_files/ --auto 3 --credit "@creatorname"
+   ```
+
+4. Edit the captions in `output/clips.json` to match the campaign's rules, then post.
+
+Creative Commons (CC BY) videos are fair game too, as long as you credit the creator. Check the license in the video's description first.
+
+**If YouTube says "Sign in to confirm you're not a bot":** the tool stops and doesn't try to get around it. Use the original file instead: your own videos download from YouTube Studio, and campaign videos come from the creator's shared folder.
+
 ---
 
 ## Part 1: Set up Kenji AI (one time, about 10 minutes)
@@ -125,6 +143,9 @@ python clip.py "https://youtu.be/VIDEO_ID" --clips "1:20-2:05,7:40-8:30"
 
 # Your own video file works too
 python clip.py my_webinar.mp4 --auto 5
+
+# A whole folder of videos (like a creator's campaign files), credited in every caption
+python clip.py campaign_files/ --auto 3 --credit "@creatorname"
 ```
 
 Clips land in `output/`, along with `output/clips.json`, which holds the caption for each clip. **Open `clips.json` and edit the captions before you post.** That's where your hook, call to action and hashtags go.
@@ -140,6 +161,7 @@ Clips land in `output/`, along with `output/clips.json`, which holds the caption
 | `--layout crop` | Fill the whole screen (best when the speaker is centered) |
 | `--model small` | Speech model: `tiny`, `base`, `small` (default), `medium`, `large-v3`. Bigger is more accurate and slower |
 | `--gpu` | Transcribe on an NVIDIA graphics card |
+| `--credit "@name"` | Adds "Credit: @name" to every caption |
 | `--post` | Push to Kenji as soon as the clips are done |
 
 **How auto-pick works:** it reads the transcript and scores every stretch of 25 to 60 seconds that starts and ends on a full sentence, so a clip never cuts off mid-thought. Openings with hooks ("here's", "why", "mistake", "you"), questions, numbers and fast, energetic speech score higher. The best ones that don't overlap win. Always watch the clips before posting.
